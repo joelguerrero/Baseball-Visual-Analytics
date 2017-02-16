@@ -1,0 +1,43 @@
+/*Bar chart*/
+.chart {
+    background-color: #eee;
+}
+
+.chart rect {
+	stroke: white;
+    fill: steelblue;
+}
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line {
+    stroke: black;
+}
+
+.y.axis line {
+    stroke: black;
+}
+
+.axis text {
+    font-size: 12px;
+}
+
+/*Pie chart*/
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}
