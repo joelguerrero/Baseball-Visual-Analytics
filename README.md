@@ -1,4 +1,4 @@
-VISUALIZATION PROJECT 1 </br>
+VISUALIZATION PROJECT 1
 VISUALIZING BASEBALL DATA USING D3
 
 1. pick a variable and bin it into a fixed range (equi-width) of your choice
