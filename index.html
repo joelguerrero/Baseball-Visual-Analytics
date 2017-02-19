@@ -4,77 +4,39 @@
 	<meta charset="utf-8"/>
 	<title> Baseball predictions </title>
 	<link rel="stylesheet" href="main.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/lib/w3.css">
+
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="index.js"></script>
 	<script src="barchart.js"></script>
 	<script src="piechart.js"></script>
+	<script src="forcechart.js"></script>
+	<script src="changeBinCount.js"></script>
 </head> 
 <body>
-	<!-- <div class="dropdown">
-	<button onclick="myFunction()" class="dropbtn">Update chart</button>
-	  <div id="myDropdown" class="dropdown-content">
-	    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-	    <a href="#about" value = "height">Height</a>
-	    <a href="#base" value = "weight">Weight</a>
-	  </div>
-	</div> -->
-	<div id  = "bar"></div>
-    <div id = "pie"></div>
-	<script>
-	/* When the user clicks on the button,
-	toggle between hiding and showing the dropdown content */
-	// function myFunction() {
-	//     document.getElementById("myDropdown").classList.toggle("show");
-	// }
+	<h1 style="background-color: aliceblue;">BASEBALL PLAYERS' STATISTICS</h1>
+	<div class="w3-container">
+		<ul class="w3-navbar w3-green w3-xlarge">
+	    	<li><a href="#" onclick="htFn()">Height</a></li>
+	    	<li><a href="#" onclick = "wtFn()">Weight</a></li>
+	    	<li><a href="#" onclick = "avgFn()">Average</a></li>
+	    	<li><a href="#" onclick = "hrFn()">Heart Rate</a></li>
+	  	</ul>
+  	</div>
 
-	// function filterFunction() {
-	//     var input, filter, ul, li, a, i;
-	//     input = document.getElementById("myInput");
-	//     filter = input.value.toUpperCase();
-	//     div = document.getElementById("myDropdown");
-	//     a = div.getElementsByTagName("a");
-	//     for (i = 0; i < a.length; i++) {
-	//         if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-	//             a[i].style.display = "";
-	//         } else {
-	//             a[i].style.display = "none";
-	//         }
-	//     }
-	// }
-
-	  // var w = 500;
-   //    var h = 500;
-   //    var barPadding = 10;
-     
-   //    var currFigure = 0;
-   //    var binWidth = 5;
-   //    var array1 = [];
-   //    var array2 = [];
-   //    var array3 = [];
-   //    var array4 = [];
-   //    d3.csv("Icecream.csv", function(data) {
-   //      data.forEach(function(d) {
-   //       array1.push((+d.income));
-   //       array2.push(+d.cons);
-   //       array3.push(+d.price);
-   //       array4.push(+d.temp);
-   //      })
-   //      refillDataHistogram(array1,binWidth);
-   //    });
-
-   //    function refillDataHistogram(array, bin){
-   //      var widthBin = (d3.max(array) - d3.min(array))/bin;
-        
-   //      dataS = new Array(bin+2).join('0').split('');
-   //      array.forEach(function(d){
-   //        dataS[Math.floor((d - d3.min(array))/widthBin)]++;
-   //      })
-   //      console.log(currFigure);
-   //        document.getElementById("bar").innerHTML = '';
-   //        createHistogram(dataS);  
-        
-        
-   //    }
-	</script>
-
+  	<div style="text-align:center; font-weight:bold;" id = "xLabel">
+  		Heights of the Baseball players
+  	</div>
+  	<div style="text-align:center;">
+  		<button id = "binWidthUpdate" style="width:1000px; color:red" type="button">
+  			<b>Drag Left(Reduce BinCounts) or Drag Right(Increse BinCounts)</b>
+  		</button>
+  	</div>
+  	<div id="bar" ></div>
+    <div id = "pie" ></div>
+    <div id = "force" ></div>
 </body> 
 </html>

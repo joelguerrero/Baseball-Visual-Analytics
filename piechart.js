@@ -1,18 +1,8 @@
-function pieChartUtil(array){
-  var sum = 0;
-  for (var i=array.length; i--;) {
-    sum+=array[i];
-  }
-  console.log(sum)
-  return 360/sum;
-}
-
 function createPieChart(histData){
 
     var radius = Math.min(w, h) / 2;
 	var color = d3.scale.ordinal()
     	.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-    // var mulRatio = pieChartUtil(histData);
 
     var arc = d3.svg.arc()
 		.outerRadius(radius - 10)
@@ -35,7 +25,7 @@ function createPieChart(histData){
             .attr("width", w+60)
             .attr("height", h+60)
         .append("g")
-            .attr("transform", "translate(" + 0.55 * w + "," + 0.55 * h + ")");
+            .attr("transform", "translate(" + 0.70 * w + "," + 0.55 * h + ")");
 
     var renderArcs = svg.selectAll(".arc")
         .data(pie(histData))
@@ -52,7 +42,7 @@ function createPieChart(histData){
             d3.select(this)
                 .transition().duration(1000)
                 .attr("d", arcBig)
-            // .attr("stroke", "black")
+            .attr("stroke", "black")
             d3.selectAll("text").each(function (d, currI) {
                 if (currI === i) {
                     d3.select(this).style("visibility", "visible");   
@@ -64,7 +54,6 @@ function createPieChart(histData){
             d3.select(this)
                 .transition().duration(1000)
                 .attr("d",arc)
-            // .attr("stroke", "none");    
             
             d3.selectAll("text").each(function (d, currI) {
                 if (currI === i) {
@@ -75,8 +64,8 @@ function createPieChart(histData){
 
     renderArcs.on("click", function() {
         document.getElementById("pie").innerHTML = '';
-        createHistogram(histData);      
-        chartType = 0;      
+        createForceChart(histData);      
+        chartType = 2;      
     })
 
     renderArcs.append("text")
@@ -87,5 +76,7 @@ function createPieChart(histData){
         .text(function(d) { 
             return d.value; 
         })
+        .style("font-weight", "bold")
+        .style("font-size", "14px")
         .style("visibility", "hidden");
 }
